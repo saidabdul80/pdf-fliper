@@ -1,0 +1,102 @@
+<template>
+    <div style="padding:20px; ">        
+        <center>
+    <Flipbook ref="flipbook" :dragToFlip="true"  loadingImage="/loader.gif" class="flipbook" :pages="pages">
+    </Flipbook>
+    <div class="d-flex flex-wrap mt-2">
+    <Flipbook v-slot="flipbook" :pages="pages" >
+        <button class="btn btn-primary" @click="leftX()"><i class="fa fa-chevron-left text-white"></i></button>
+        <a href="/english.pdf" target="_blank" class="btn btn-primary text-white " >Download</a>    
+        <button class="btn btn-primary " @click="rightX()"><i class="fa fa-chevron-right text-white"></i></button>
+    </Flipbook>
+
+    </div>
+    <i class="leftxx"></i>
+    <i class="rightxx"></i>
+    
+        </center>
+    </div>
+</template>
+<script>
+import Flipbook from '../../../node_modules/flipbook-vue' 
+export default {     
+  components: { Flipbook },    
+    data(){
+        return{
+            pages:[
+            '/files/1.jpg',
+            '/files/2.jpg',
+            '/files/3.jpg',
+            '/files/4.jpg',
+            '/files/5.jpg',
+            '/files/6.jpg',
+            '/files/7.jpg',
+            '/files/8.jpg',
+            '/files/9.jpg',
+            '/files/10.jpg',
+            '/files/1.jpg']
+        }
+    },
+    methods:{
+        rightX(){
+              this.$refs.flipbook.flipStart('right', true);
+        },
+        leftX(){
+              this.$refs.flipbook.flipStart('left', true);
+        }
+
+    },
+mounted(){
+  this.$nextTick(()=>{
+  });
+}
+}
+</script>
+<style>
+@media screen and (max-width:500px){
+    main div{
+        padding: 0px !important;
+    }
+
+
+}
+.flipbook {
+  width: 85vw;
+  height: 85vh;
+}
+.flipbook-container{
+    margin: 5px auto !important;
+}
+.click-to-flip{
+    background: #fff;
+}
+.leftxx{
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f053";
+        text-align: left;
+    position: relative;
+    left: -45%;
+    color:rgb(253, 219, 66);
+    pointer-events: none !important;
+    cursor: pointer;
+    font-size: 5rem;
+    top: 40%;
+
+}
+.rightxx{
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f054";
+        text-align: left;
+    position: relative;
+    right: -45%;
+    color:rgb(253, 219, 66);
+    pointer-events: none !important;
+    cursor: pointer;
+    font-size: 5rem;
+    top: 40%;
+}
+.flex-wrap{
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+</style>
+ 
