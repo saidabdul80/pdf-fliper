@@ -3,6 +3,7 @@
 
 if (empty($_COOKIE['mycookiexyz123'])) {
     header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0');
+    echo 1930;
 }else{
     if($_COOKIE[''] ===  date('Y-m-d')){
 
