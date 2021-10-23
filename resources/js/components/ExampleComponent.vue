@@ -5,9 +5,12 @@
     </Flipbook>
     <div class="d-flex flex-wrap mt-2">
     <Flipbook v-slot="flipbook" :pages="pages" >
-        <button class="btn btn-primary" @click="leftX()"><i class="fa fa-chevron-left text-white"></i></button>
+
+        <button v-if="start"  class="btn btn-primary" disabled="disabled" ><i class="fa fa-chevron-left text-white"></i></button>
+        <button  v-else class="btn btn-primary" @click="leftX()"><i class="fa fa-chevron-left text-white"></i></button>
         <a href="/english.pdf" target="_blank" class="btn btn-primary text-white " >Download</a>    
-        <button class="btn btn-primary " @click="rightX()"><i class="fa fa-chevron-right text-white"></i></button>
+        <button v-if="end" disabled="disabled" class="btn btn-primary" ><i class="fa fa-chevron-right text-white"></i></button>
+        <button v-else class="btn btn-primary" @click="rightX()"><i class="fa fa-chevron-right text-white"></i></button>
     </Flipbook>
 
     </div>
@@ -34,7 +37,9 @@ export default {
             '/files/8.jpg',
             '/files/9.jpg',
             '/files/10.jpg',
-            '/files/1.jpg']
+            '/files/1.jpg'],
+            end:false,
+            start:true
         }
     },
     methods:{
@@ -48,6 +53,20 @@ export default {
     },
 mounted(){
   this.$nextTick(()=>{
+      let self = this;
+      //    console.log(self.$refs.flipbook);
+      let egg = setInterval(() => {
+          if(self.$refs.flipbook.currentPage <10 ){            
+              self.end = false
+          }else{
+              self.end = true
+          }
+          if(self.$refs.flipbook.currentPage > 0){              
+              self.start = false
+          }else{
+              self.start = true
+          }         
+      }, 10);
   });
 }
 }

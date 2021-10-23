@@ -2085,6 +2085,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2092,7 +2095,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      pages: ['/files/1.jpg', '/files/2.jpg', '/files/3.jpg', '/files/4.jpg', '/files/5.jpg', '/files/6.jpg', '/files/7.jpg', '/files/8.jpg', '/files/9.jpg', '/files/10.jpg', '/files/1.jpg']
+      pages: ['/files/1.jpg', '/files/2.jpg', '/files/3.jpg', '/files/4.jpg', '/files/5.jpg', '/files/6.jpg', '/files/7.jpg', '/files/8.jpg', '/files/9.jpg', '/files/10.jpg', '/files/1.jpg'],
+      end: false,
+      start: true
     };
   },
   methods: {
@@ -2104,7 +2109,25 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.$nextTick(function () {});
+    var _this = this;
+
+    this.$nextTick(function () {
+      var self = _this; //    console.log(self.$refs.flipbook);
+
+      var egg = setInterval(function () {
+        if (self.$refs.flipbook.currentPage < 10) {
+          self.end = false;
+        } else {
+          self.end = true;
+        }
+
+        if (self.$refs.flipbook.currentPage > 0) {
+          self.start = false;
+        } else {
+          self.start = true;
+        }
+      }, 10);
+    });
   }
 });
 
@@ -39931,22 +39954,35 @@ var render = function() {
                     key: "default",
                     fn: function(flipbook) {
                       return [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            on: {
-                              click: function($event) {
-                                return _vm.leftX()
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-chevron-left text-white"
-                            })
-                          ]
-                        ),
+                        _vm.start
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { disabled: "disabled" }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-chevron-left text-white"
+                                })
+                              ]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.leftX()
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-chevron-left text-white"
+                                })
+                              ]
+                            ),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -39957,22 +39993,35 @@ var render = function() {
                           [_vm._v("Download")]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary ",
-                            on: {
-                              click: function($event) {
-                                return _vm.rightX()
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-chevron-right text-white"
-                            })
-                          ]
-                        )
+                        _vm.end
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { disabled: "disabled" }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-chevron-right text-white"
+                                })
+                              ]
+                            )
+                          : _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.rightX()
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-chevron-right text-white"
+                                })
+                              ]
+                            )
                       ]
                     }
                   }
