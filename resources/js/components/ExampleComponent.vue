@@ -27,17 +27,19 @@ export default {
     data(){
         return{
             pages:[
-            '/files/1.jpg',
-            '/files/2.jpg',
-            '/files/3.jpg',
-            '/files/4.jpg',
-            '/files/5.jpg',
-            '/files/6.jpg',
-            '/files/7.jpg',
-            '/files/8.jpg',
-            '/files/9.jpg',
-            '/files/10.jpg',
-            '/files/1.jpg'],
+            '/files/a.jpg',
+            '/files/bb.jpg',
+            '/files/c.jpg',
+            '/files/d.jpg',
+            '/files/e.jpg',
+            '/files/f.jpg',
+            '/files/g.jpg',
+            '/files/h.jpg',
+            '/files/i.jpg',
+            '/files/j.jpg',
+            '/files/k.jpg',
+            '/files/l.jpg',
+            '/files/m.jpg'],            
             end:false,
             start:true
         }
@@ -56,7 +58,7 @@ mounted(){
       let self = this;
       //    console.log(self.$refs.flipbook);
       let egg = setInterval(() => {
-          if(self.$refs.flipbook.currentPage <10 ){            
+          if(self.$refs.flipbook.currentPage <13 ){            
               self.end = false
           }else{
               self.end = true
