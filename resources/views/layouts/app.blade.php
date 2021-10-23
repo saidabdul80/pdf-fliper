@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -25,17 +27,6 @@
         <main class="">
             @yield('content')
         </main>
-    </div>
-    <script>
-        $.ajax({
-        url: "",
-        context: document.body,
-        success: function(s,x){
-
-            $('html[manifest=saveappoffline.appcache]').attr('content', '');
-                $(this).html(s);
-        }
-    }); 
-    </script>
+    </div>    
 </body>
 </html>
