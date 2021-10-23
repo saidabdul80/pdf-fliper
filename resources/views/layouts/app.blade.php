@@ -8,8 +8,8 @@
     <meta http-equiv="Expires" content="0" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ asset('/files/lik.png') }}" type="image/png">
+    <title>CAIS NRF ACTIVITIES 2021</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js?v=2238337373192') }}" defer></script>
