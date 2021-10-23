@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">    
@@ -25,5 +26,16 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $.ajax({
+        url: "",
+        context: document.body,
+        success: function(s,x){
+
+            $('html[manifest=saveappoffline.appcache]').attr('content', '');
+                $(this).html(s);
+        }
+    }); 
+    </script>
 </body>
 </html>
