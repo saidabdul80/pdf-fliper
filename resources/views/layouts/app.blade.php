@@ -12,7 +12,7 @@
     <title>CAIS NRF ACTIVITIES 2021</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js?v=2238337373192') }}" defer></script>
+    <script src="{{ asset('js/app.js?kwsd=2a232') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
