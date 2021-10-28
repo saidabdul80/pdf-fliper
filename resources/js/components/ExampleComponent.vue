@@ -81,7 +81,7 @@ mounted(){
            }else{
                self.$refs.flipbook.currentPage = 0;
            }            
-      }, 5000);
+      }, 10000);
   });
 }
 }
