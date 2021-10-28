@@ -1,6 +1,7 @@
 <template>
     <div style="padding:20px; ">        
         <center>
+            <b style="font-size:2em;">Accessible through <i class="fa fa-hand-o-right"></i> <span style="color:red;"> www.bit.ly/caisnrf </span></b>
     <Flipbook ref="flipbook" :dragToFlip="true"  loadingImage="/loader.gif" class="flipbook" :pages="pages">
     </Flipbook>
     <div class="d-flex flex-wrap mt-2">

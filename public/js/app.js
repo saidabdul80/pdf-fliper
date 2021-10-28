@@ -2088,6 +2088,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -39944,6 +39945,15 @@ var render = function() {
       _c(
         "center",
         [
+          _c("b", { staticStyle: { "font-size": "2em" } }, [
+            _vm._v("Accessible through "),
+            _c("i", { staticClass: "fa fa-hand-o-right" }),
+            _vm._v(" "),
+            _c("span", { staticStyle: { color: "red" } }, [
+              _vm._v(" www.bit.ly/caisnrf ")
+            ])
+          ]),
+          _vm._v(" "),
           _c("Flipbook", {
             ref: "flipbook",
             staticClass: "flipbook",
