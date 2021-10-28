@@ -7,10 +7,10 @@
     <Flipbook v-slot="flipbook" :pages="pages" >
 
         <button v-if="start"  class="btn btn-primary" disabled="disabled" ><i class="fa fa-chevron-left text-white"></i></button>
-        <button  v-else class="btn btn-primary" @click="leftX()"><i class="fa fa-chevron-left text-white"></i></button>
+        <button  v-else class="btn btn-primary"  @click="leftX()" ref="backx1"><i class="fa fa-chevron-left text-white"></i></button>
         <a href="/english.pdf" target="_blank" class="btn btn-primary text-white " >Download</a>    
         <button v-if="end" disabled="disabled" class="btn btn-primary" ><i class="fa fa-chevron-right text-white"></i></button>
-        <button v-else class="btn btn-primary" @click="rightX()"><i class="fa fa-chevron-right text-white"></i></button>
+        <button v-else class="btn btn-primary"  @click="rightX()" ref="rightx1"><i class="fa fa-chevron-right text-white"></i></button>
     </Flipbook>
 
     </div>
@@ -72,6 +72,16 @@ mounted(){
               self.start = true
           }         
       }, 10);
+      let back, right;
+      setInterval(() => {
+          back = self.$refs.backx1;
+          right = self.$refs.rightx1;
+           if(self.$refs.flipbook.currentPage <14 && self.$refs.flipbook.currentPage >-1 ){ 
+               right.click();
+           }else{
+               self.$refs.flipbook.currentPage = 0;
+           }            
+      }, 5000);
   });
 }
 }

@@ -2127,6 +2127,17 @@ __webpack_require__.r(__webpack_exports__);
           self.start = true;
         }
       }, 10);
+      var back, right;
+      setInterval(function () {
+        back = self.$refs.backx1;
+        right = self.$refs.rightx1;
+
+        if (self.$refs.flipbook.currentPage < 14 && self.$refs.flipbook.currentPage > -1) {
+          right.click();
+        } else {
+          self.$refs.flipbook.currentPage = 0;
+        }
+      }, 5000);
     });
   }
 });
@@ -39970,6 +39981,7 @@ var render = function() {
                           : _c(
                               "button",
                               {
+                                ref: "backx1",
                                 staticClass: "btn btn-primary",
                                 on: {
                                   click: function($event) {
@@ -40009,6 +40021,7 @@ var render = function() {
                           : _c(
                               "button",
                               {
+                                ref: "rightx1",
                                 staticClass: "btn btn-primary",
                                 on: {
                                   click: function($event) {
